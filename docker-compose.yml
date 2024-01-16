@@ -1,0 +1,13 @@
+version: "3"
+services:
+    sslbump-proxy:
+        tty: true
+        stdin_open: true
+        ports:
+            - 3128:3128
+        volumes:
+          - /usr/local/squid/myCA.der:/usr/local/squid/myCA.der
+          - /usr/local/squid/myCA.crt:/usr/local/squid/myCA.crt
+          - /usr/local/squid/myCA.pem:/usr/local/squid/myCA.pem
+        restart: always
+        image: sslbump-proxy
