@@ -6,8 +6,10 @@ services:
         ports:
             - 3128:3128
         volumes:
-          - /usr/local/squid/myCA.der:/usr/local/squid/myCA.der
-          - /usr/local/squid/myCA.crt:/usr/local/squid/myCA.crt
-          - /usr/local/squid/myCA.pem:/usr/local/squid/myCA.pem
+            - /usr/local/squid/myCA.der:/usr/local/squid/myCA.der
+            - /usr/local/squid/myCA.crt:/usr/local/squid/myCA.crt
+            - /usr/local/squid/myCA.pem:/usr/local/squid/myCA.pem
+            - /usr/local/squid/etc/squid.conf:/usr/local/squid/etc/squid.conf
+            - /usr/local/squid/etc/squid-bk.conf:/usr/local/squid/etc/squid-bk.conf
         restart: always
         image: sslbump-proxy
