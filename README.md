@@ -22,6 +22,8 @@ Usage (Proxy)
 Pick your fakeroot-cert and import it into your web browsers.  
 FILE PATH: /usr/local/squid/myCA.der  
 or normally access some HTTPS webpages and "Trust Cert". 
+FOR IOS:
+Important: Go to Settings -> General -> About -> Certificate Trust Settings. Toggle mitmproxy to ON.
 
 Note
 ======================
