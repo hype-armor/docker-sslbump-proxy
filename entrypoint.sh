@@ -33,6 +33,11 @@ else
 	openssl req -new -newkey rsa:2048 -nodes -days 3650 -x509 -keyout $SQUID_DIR/myCA.pem -out $SQUID_DIR/myCA.crt \
  -subj "/C=US/ST=Oklahoma/L=Jenks/O=GMG/OU=GMG/CN=squid.local"
 	openssl x509 -in $SQUID_DIR/myCA.crt -outform DER -out $SQUID_DIR/myCA.der
+	openssl pkcs12 -legacy -passout pass:pass -export -in $SQUID_DIR/myCA.crt -inkey $SQUID_DIR/myCA.pem -out cert.p12
+ 
+ 	#openssl req -new -sha256 -key $SQUID_DIR/myCA.pem -out csr2.csr -subj "/C=US/ST=Oklahoma/L=Jenks/O=GMG/OU=GMG/CN=squid.local"
+  	#openssl req x509 -sha256 -days 365 -key $SQUID_DIR/myCA.pem -in csr2.csr -out $SQUID_DIR/certificate3.pem
+   	#openssl pkcs12 -export -out $SQUID_DIR/keyStore2.p12 -inkey $SQUID_DIR/myCA.pem -in $SQUID_DIR/certificate2.pem
 fi
 
 mkdir -p $SQUID_DIR/var/lib
